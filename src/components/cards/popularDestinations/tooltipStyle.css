@@ -1,0 +1,12 @@
+.react-tooltip,.__react_component_tooltip  {
+  background-color: white !important;
+  box-shadow: 0px 0px 10px 0px rgba(0, 0, 0, 0.2);
+  border: 2px solid #e6e6e6;
+  padding: 0px !important;
+  border-radius: 12px !important;
+  opacity: 1 !important;
+}
+
+.__react_component_tooltip::after {
+    border-right-color: #fff !important;
+}

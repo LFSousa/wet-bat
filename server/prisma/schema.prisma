@@ -1,0 +1,39 @@
+generator client {
+  provider = "prisma-client-js"
+}
+
+datasource db {
+  provider = "postgresql"
+  url      = env("DATABASE_URL")
+}
+
+generator tsed {
+  provider = "tsed-prisma"
+}
+
+model Location {
+  id           Int    @id @default(autoincrement())
+  name         String
+  country      String
+  municipality String
+  iata         String
+  latitude     Float
+  longitude    Float
+
+  originQuotes      Quote[] @relation(name: "Quote_originId")
+  destinationQuotes Quote[] @relation(name: "Quote_destinationId")
+}
+
+model Quote {
+  id             Int      @id @default(autoincrement())
+  createdAt      DateTime @default(now())
+  originId       Int
+  origin         Location @relation(fields: [originId], references: [id], name: "Quote_originId")
+  destinationId  Int
+  destination    Location @relation(fields: [destinationId], references: [id], name: "Quote_destinationId")
+  departureDate  DateTime
+  returnDate     DateTime
+  people         Int
+  transportation String
+  name           String
+}
