@@ -1,46 +1,71 @@
-# Getting Started with Create React App
+# [wetbat.filipe.xyz](https://wetbat.filipe.xyz/) MVP
 
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
+This prototype was built with React and NodeJS, both in Typescript
 
-## Available Scripts
+The backend was built with [tsed.io](https://tsed.io/) framework, using PostgreSQL as database and Prisma as ORM
 
-In the project directory, you can run:
+_Ts.ED is a Node.js Framework on top of Express/Koa.js. Written in Typescript, it helps you build your server-side application easily and quickly_
 
-### `npm start`
+- You can preview the MVP at [wetbat.filipe.xyz](https://wetbat.filipe.xyz/)
 
-Runs the app in the development mode.\
-Open [http://localhost:3000](http://localhost:3000) to view it in the browser.
+- You can read the server docs at [wet-bat.herokuapp.com/doc](https://wet-bat.herokuapp.com/doc) 
 
-The page will reload if you make edits.\
-You will also see any lint errors in the console.
 
-### `npm test`
 
-Launches the test runner in the interactive watch mode.\
-See the section about [running tests](https://facebook.github.io/create-react-app/docs/running-tests) for more information.
+## Installation
+To run this prototype you will have to consider 2 parts:
+* Client: You'll have to build this project and deploy it to a web server.
+* Server: You'll have to deploy it too in order to make your client useful.
 
-### `npm run build`
+## Requirements
+* Nodejs
+* yarn
+* Postgres server
 
-Builds the app for production to the `build` folder.\
-It correctly bundles React in production mode and optimizes the build for the best performance.
+## Building client
+To clone the client execute the following commands:
 
-The build is minified and the filenames include the hashes.\
-Your app is ready to be deployed!
+    git clone https://github.com/LFSousa/wet-bat.git
+    cd wet-bat
+    yarn
 
-See the section about [deployment](https://facebook.github.io/create-react-app/docs/deployment) for more information.
 
-### `npm run eject`
+Now you need to setup your client environment variables to include your server url  
+Just update `src/.env` file, then run
 
-**Note: this is a one-way operation. Once you `eject`, you can’t go back!**
+    yarn start
 
-If you aren’t satisfied with the build tool and configuration choices, you can `eject` at any time. This command will remove the single build dependency from your project.
+Then you'll be running the React development server.
+If you want to deploy it, run
 
-Instead, it will copy all the configuration files and the transitive dependencies (webpack, Babel, ESLint, etc) right into your project so you have full control over them. All of the commands except `eject` will still work, but they will point to the copied scripts so you can tweak them. At this point you’re on your own.
+    yarn build
 
-You don’t have to ever use `eject`. The curated feature set is suitable for small and middle deployments, and you shouldn’t feel obligated to use this feature. However we understand that this tool wouldn’t be useful if you couldn’t customize it when you are ready for it.
 
-## Learn More
+# Running server
+## Preparing the server
+The server is in `/server` directory. Navigate to it.
 
-You can learn more in the [Create React App documentation](https://facebook.github.io/create-react-app/docs/getting-started).
+To run the server you need to setup your environment variables. You can run `cp .env.example .env` and modify  the `.env` content.
 
-To learn React, check out the [React documentation](https://reactjs.org/).
+## Preparing database (apply migrations)
+In order to apply the migrations and seed the locations table, you need to run
+
+    npx prisma migrate dev
+
+To manually run the seed script, run
+
+    npx prisma db seed
+
+## Running the server
+To run the server just run
+
+    yarn start
+
+Now both client and server are running
+
+
+# Previews
+![Preview](https://i.imgur.com/fi8lo3k_d.webp?maxwidth=760&fidelity=grand)
+![Preview](https://i.imgur.com/DGsaU8M_d.webp?maxwidth=760&fidelity=grand)
+![Preview](https://i.imgur.com/aZFpFX0_d.webp?maxwidth=760&fidelity=grand)
+![Preview](https://i.imgur.com/yVDucvk_d.webp?maxwidth=760&fidelity=grand)
