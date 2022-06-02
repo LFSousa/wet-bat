@@ -5,6 +5,7 @@
     "name": "Luis Filipe Sousa",
     "email": "luis@filipe.xyz"
   },
+  "homepage": "https://wetbat.filipe.xyz",
   "private": true,
   "dependencies": {
     "@date-io/moment": "^2.14.0",
